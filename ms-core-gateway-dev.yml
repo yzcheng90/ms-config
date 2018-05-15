@@ -1,0 +1,26 @@
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+
+#安全配置
+security:
+  validate:
+    code: false
+  sessions: stateless
+  oauth2:
+    client:
+      client-id: suke
+      client-secret: sk172839456
+    resource:
+      loadBalanced: true
+      token-info-uri:  http://localhost:7500/oauth/check-token
+      service-id: sk-zuul-service
+      jwt:
+        key-uri:  http://localhost:7500/oauth/token_key # 取token key url
+
+logging:
+  config: classpath:logback.xml
